@@ -68,6 +68,7 @@ useEffect (function() {
       if(!res.ok)throw new Error('check your hhb connection 💥💥💥')
      const data = await res.json()   
        setObj({...data.data.recipe})
+      console.log(obj);
   } catch (err) {
      console.log(err);
     }
@@ -82,7 +83,7 @@ getJson(`${API}/${hash}?key=${KEY}`)
 
   return <div>
 <Header setting={setting} arrResult={!showBook?arrResult:bookArr} setGetValue={setGetValue}/>
-    {open && !showBook?<ListMenu onset={onset} load={load} error={error} count={count} setCount={setCount} arrResult={arrResult}>🙃 Start by searching for a recipe or an ingredient. Have fun!</ListMenu> : showBook?  <ListMenu onset={setting} load={load} error={error} count={count} setCount={setCount} arrResult={bookArr}> You haven't booked any recipe... Search a recipe and book them 😉 </ListMenu>: <Li onset={onset} obj={obj} setBookArr={setBookArr} bookArr={bookArr} setObj={setObj} /> } 
+{open && !showBook?<ListMenu onset={onset} load={load} error={error} count={count} setCount={setCount} arrResult={arrResult}>🙃 Start by searching for a recipe or an ingredient. Have fun!</ListMenu> : showBook && open ?  <ListMenu onset={setting} load={load} error={error} count={count} setCount={setCount} arrResult={bookArr}> You haven't booked any recipe... Search a recipe and book them 😉 </ListMenu>: <Li onset={onset} obj={obj} setBookArr={setBookArr} bookArr={bookArr} setObj={setObj} /> } 
     </div>
 }
 

@@ -25,7 +25,11 @@ const sliceArr = arrResult.slice(start,stop)
        </div>
 }
 function List({results}) {
- return <li className="list">
+function a() {
+  console.log(results.id); 
+}
+  
+ return <li onClick={a} className="list">
  <a className="list_link" href={'#' + results.id}>
 <img className="img" src={results.image_url.replace('http','https')} alt={results.publisher}/>
   <div className="content" >
